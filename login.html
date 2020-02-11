@@ -17,34 +17,32 @@
 	
 </head>
 <body class="background-container">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-padding">
+          <a class="navbar-brand" href="index.html"><i class="fas fa-hand-middle-finger icon-color" style="font-size:30px"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav w-100">
+              <li class="nav-item"> 
+                <a class="nav-link" href="index.html">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About us </a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="join.html">Join </a>
+              </li>
+              <div class= "ml-auto"> 
+              <li class="nav-item active">
+                <a class="nav-link" href="login.html">Log in <span class="sr-only">(current)</span></a>
+              </li>
+              </li>
+              </div>
+          </ul>
+          </div>
+        </nav>
 	<div class= "container">
-		<div class= "row">
-			<div class= "col-md-12">
-				<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  				<a class="navbar-brand" href="index.html"><i class="fas fa-hand-middle-finger icon-color"></i></a>
-  					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    					<span class="navbar-toggler-icon"></span>
-  					</button>
-  				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    			<ul class="navbar-nav mr-auto">
-      				<li class="nav-item"> 
-        				<a class="nav-link" href="index.html">Home </a>
-      				</li>
-      				<li class="nav-item">
-        				<a class="nav-link" href="about.html">About us </a>
-      				</li>
-      				<li class="nav-item">
-       					 <a class="nav-link" href="join.html">Join </a>
-      				</li>
-      				<li class="nav-item active">
-        				<a class="nav-link" href="login.html">Log in <span class="sr-only">(current)</span></a>
-      				</li>
-      				</li>
-    			</ul>
-  				</div>
-				</nav>
-      </div>
-    </div>
     <br>
     <div class= "row">
       <div class= "col-md-6">
@@ -56,13 +54,15 @@
         <form action="action_page.php" method="post" class="form-padding">
           <div class="container">
   	       <div class="row">
-    	       <label for="uname" class = "header-small"><b>Username  </b></label>
-    	       <input type="text" placeholder="Enter Username" name="uname" required class = "header-small">
+    	       <label for="uname" class = "header-login2 padding-login"><b>Username</b></label>
+    	       <input type="text" placeholder="Enter Username" name="uname" required class = "header-login">
           </div>
           <br>
           <div class="row">
-    	       <label for="psw" class = "header-small"><b>Password  </b></label>
-    	       <input type="password" placeholder="Enter Password" name="psw" required class = "header-small">
+    	       <label for="psw" class = "header-login2 padding-login"><b>Password</b></label>
+
+
+    	       <input type="password"placeholder="Enter Password" name="psw" required class = "header-login">
           </div>
           <br>
           <div class="row">
@@ -74,37 +74,38 @@
       	     <input type="checkbox" checked="checked" name="remember"> Remember me
     	       </label>
           </div>
-          <br>
-  	     </div>
          <br>
-          <div class="container">
-            <button type="button" class="button-login">Cancel</button>
-            <span class="login-text">Forgot <a href="#" class="login-text">password?</a></span>
+          <div class="row">
+            <button type="button" class="button-login padding-cancel">Cancel</button>
+          </div>
+          <br>
+           <div class= "row">
+           <h5 class="login-text"> Forgot <a href="#" class="login-text">password?</a>
+            </div> 
+        
           </div>
       </form>
     </div>
   </div>
   <br>
-  
-  <div class= "row">
-      <div class= "col-md-12">
-    <hr>
-      <footer class="footer">
-  				<p> Connect with us </p>
-          <p> <a><i class="fas fa-envelope"></i></a> Contact
+   <hr>
+</div>
+ 
+ <footer class="footer navbar-padding">
+          <p class="bold"> Connect with us </p>
+          <p> <a class="footer" href="contactus.html" target="contactus.html"><i class="fas fa-envelope"></i>  Subscribe to Newsletter</a> 
           </p>
-          <p> <a><i class="fab fa-twitter"></i></a> Twitter
+          <p> <a><i class="fab fa-twitter"></i> Twitter</a> 
           </p>
-          <p> <a><i class="fab fa-facebook"></i></a> Facebook
+          <p> <a><i class="fab fa-facebook"></i> Facebook</a> 
           </p>
-          <p> <a><i class="fab fa-instagram"></i></a> Instagram
+          <p> <a><i class="fab fa-instagram"></i> Instagram</a> 
           </p>
-          <p> <a><i class="fab fa-youtube"></i></a> YouTube
+          <p> <a><i class="fab fa-youtube"></i> YouTube</a>
           </p>
           <p> Copyright © 2020 Positive Power Inc. All Rights Reserved. </p>
-			</footer>
-    </div>
-  </div>
+      </footer>
+ 
 
 
 

@@ -10,14 +10,27 @@
 }
 
 .form-padding {
-	padding-top: 10%;
+	padding-top: 20%;
+	}
 
+.navbar-padding{
+	padding-left: 7%;
+}
+
+.aboutus-padding {
+	padding-top: 10%;
+	}
+
+
+.navbar-padding-login{
+	padding-right: 10%
 }
 
 .background-container {
 	background-color: #564256;
 
 }
+
 
 .background-container2 {
 	background-color: #F9DAD0;
@@ -26,8 +39,10 @@
 
 .background-image1 {
 	background-image: url("../img/sand.jpg");
+}
 
-
+.box {
+	background-color: white;
 }
 
 .first-row {
@@ -66,12 +81,45 @@
 	text-align: center;
 	} 
 
+.aboutus-quote{
+	font-size: 30px;
+	color: #564256;
+	font-family: Pacifico, cursive;
+	text-align: center;
+	} 
+
+.review {
+	font-size: 30px;
+	text-decoration: underline;
+	color: #564256;
+	font-family: Verdana;
+	text-align: center;
+}
+
 .header-small{
 	font-size: 30px;
 	color: #BBBAC6;
 	font-family: Verdana;
 	text-align: center;
 }
+
+
+.header-login{
+	font-size: 16px;
+	color: #BBBAC6;
+	font-family: Verdana;
+	text-align: center;
+
+	}
+
+
+.header-login2{
+	font-size: 20px;
+	color: #BBBAC6;
+	font-family: Verdana;
+	text-align: center;
+
+	}
 
 .header-small2{
 	font-size: 30px;
@@ -93,6 +141,16 @@
 	font-family: Verdana;
 
 }
+
+.feature-text{
+	font-size: 16px;
+	color: #210B2C;
+	font-family: Verdana;
+	margin-top:10%;
+	margin-bottom: 10%;
+	margin-right: 10%;
+	margin-left: 10%;
+	}
 
 .login-text{
 	font-size: 12px ;
@@ -164,7 +222,28 @@
 
 .footer2{
 	font-size: 16px;
-	color: #210B2C;
+	color: #BBBAC6;
+	background-color: #564256;
 	font-family: Verdana;
 
 }
+
+.padding-cancel{
+	padding-right:5% 
+}
+
+.padding-login{
+	padding-right: 10%
+}
+
+.padding-join2{
+	padding-top: 20%
+}
+
+.padding-join3{
+	padding-top: 20%
+}
+
+
+
+
