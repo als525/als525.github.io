@@ -1,0 +1,55 @@
+h1{
+	color: slateblue;
+	text-decoration: underline;
+	font-size: 1000%;
+	font-family: verdana;
+
+}
+
+body {
+	background-color:slateblue;
+}
+
+.innerbox {
+	background-color: lightgreen;
+	width: 70%;
+	margin: auto;
+}
+
+.header{
+	font-size: 500%;
+	color: chocolate;
+	font-family: verdana;
+	font-weight: bold;
+	margin-left: 50px;
+	margin-right: 25px;
+}
+
+.image {
+	border-radius: 50%;
+	height:1000px;
+	width:1000px;
+	float:right;
+	margin-right: 50px;
+}
+
+.bullets {
+	margin: auto;
+	width: 30%;
+}
+
+.first-item {
+	color: slateblue;
+	font-size: 500%;
+	font-family: verdana;
+	margin: auto;
+	width: 30%;
+}
+
+.second-item {
+	color: slateblue;
+	font-size: 500%;
+	font-family: verdana;
+	margin-left: 100px;
+
+}
