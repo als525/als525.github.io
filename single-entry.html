@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--  needed to use bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<!--  needed for icons from fontawesome.com -->
+	<script src="https://kit.fontawesome.com/81194fe3fa.js" crossorigin="anonymous"></script>
+
+
+<!-- fonts from google fonts -->
+
+  <link href="https://fonts.googleapis.com/css?family=Chivo|Indie+Flower|Pacifico|Patrick+Hand&display=swap" rel="stylesheet">
+
+
+<!-- aninmations from animate.css -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+<!-- linkes to your css sheet -- good habit to have this at the end of your links! -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Positive Power</title>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="creatediary.html">Create entry</a>
+  </nav>
+  <h1 id="title">Loading&hellip;</h1>
+  <div id="content"></div>
+
+
+<!-- This tag renders just one single diary post! -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const titleH1 = document.querySelector('#title');
+      const content = document.querySelector('#content');
+      // this is a dirty hack 🤮
+      const id = location.search.slice('?id='.length);
+      const url = `Kirsten508.pythonanywhere.com/diaryentry/${id}`;
+      fetch(url)
+      .then(r => r.json())
+      .then(res => {
+        const entry = res.data;
+        const entryHTML = `
+          <div>
+            <h3>${entry.title}</h3>
+            <h4>Published: ${new Date(entry.createdat).toDateString()}</h4>
+            <p>${entry.description}</p>
+            <hr />
+          </div>
+        `;
+        titleH1.innerHTML = entry.title
+        content.innerHTML = entryHTML;
+      })
+    });
+  </script>
+</body>
+</html>

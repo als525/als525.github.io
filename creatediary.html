@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--  needed to use bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<!--  needed for icons from fontawesome.com -->
+	<script src="https://kit.fontawesome.com/81194fe3fa.js" crossorigin="anonymous"></script>
+
+
+<!-- fonts from google fonts -->
+
+  <link href="https://fonts.googleapis.com/css?family=Chivo|Indie+Flower|Pacifico|Patrick+Hand&display=swap" rel="stylesheet">
+
+
+<!-- aninmations from animate.css -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+<!-- linkes to your css sheet -- good habit to have this at the end of your links! -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Positive Power</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="single-entry.html">Create entry</a>
+  </nav>
+  <h1>Create diary entry</h1>
+  <div id="success-msg" class="hidden" style="color: teal">Entry created - <a href="/" id="new-entry-link">view</a></div>
+  <form id="diary-form" action="#">
+    <label for="title">Entry title:</label>
+    <input type="text" name="title">
+    <br/>
+    <label for="description">Entry text:</label>
+    <textarea name="description"></textarea>
+    <br/>
+    <input type="submit" value="Save">
+  </form>
+</body>
+
+
+<!-- This script tag powers our form by sending the information to the API once you've cliked submit!  -->
+<script>
+  const url = 'Kirsten508.pythonanywhere.com/diaryentry';
+
+  document.querySelector('#diary-form').addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    console.log(ev);
+
+    const data = {
+      title: ev.target.elements[0].value,
+      description: ev.target.elements[1].value,
+    }
+
+    fetch(url, {
+      method: 'post',
+      headers: {
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+      if (res.id) {
+        document.querySelector('#success-msg').classList.remove('hidden');
+        document.querySelector('#new-entry-link').setAttribute('href', `/single-entry.html?id=${res.id}`);
+      }
+    })
+  });
+</script>
+</html>
