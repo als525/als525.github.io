@@ -92,7 +92,7 @@
       .then(r => r.json())
       .then(data => {
         const ids = Object.keys(data.entries)
-        const sortedEntries = ids.sort((a, b) => new Date(data.entries[a]).getTime() - new Date(data.entries[b]).getTime());
+        const sortedEntries = ids.sort((a, b) => new Date(data.entries[a].createdat).getTime() - new Date(data.entries[b].createdat).getTime());
         const entriesContent = ids.map(id => `
           <div>
             <h3 class= "header-diary">${data.entries[id].title}</h3>
