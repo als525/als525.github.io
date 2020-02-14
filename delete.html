@@ -36,6 +36,7 @@
   </style>
 </head>
 <body class="background-container">
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-padding">
             <a class="navbar-brand" href="index.html"><i class="fas fa-hand-middle-finger icon-color" style="font-size:30px"></i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,38 +51,36 @@
               <li class="nav-item">
                  <a class="nav-link" href="mydiary.html">Diary</a>
               </li>
-              <li class="nav-item active">
-                 <a class="nav-link" href="creatediary.html">Create</a><span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                 <a class="nav-link" href="creatediary.html">Create</a></a>
               </li>
               </div>
           </ul>
           </div>
   </nav>
 
-  <div class = "container">
-    <div class= "row">
-      <div class= "col-md-12">
-  <br>
-  <h1 class= "header-diary">I am grateful for:</h1>
-  <br>
-  <div id="success-msg" class="hidden" style="color: azure">Entry created - <a href="/" id="new-entry-link" style="color: azure"> View</a></div>
-  <form id="diary-form" action="#">
-    <label for="title" class = "body-text bold">Title:</label>
-    <input type="text" name="title" maxlength="30" size="35">
-    <br/>
-    <label for="description" class = "body-text bold">Text: </label>
-    <textarea name="description" rows="6" cols="35"></textarea>
-    <br/>
-    <br>
-    <input type="submit" value="Save" class = "button-login">
-  </form>
+ <div class="container">
+  	<div class="row">
+  		<div class="col-md-12">
+  			<br>
+  			<div id="success-msg" class="hidden header-delete" style="color: azure"> Successfully deleted!
+          <br>
+          <br>
+          <img src="IMG/power.png" class="power-image">
+  				<br>
+          <br>
+          <p>Head back to <a href="mydiary.html" class="header-delete underline">My Diary</a></p>
+  			</div>
 
-    </div>
-  </div>
+
+
+		</div>
+	</div>
 </div>
 
 <br>
 <hr>
+
 <footer class="footer navbar-padding">
           <p class="bold"> Connect with us </p>
           <p> <a class="footer" href="contactus.html" target="contactus.html"><i class="fas fa-envelope"></i>  Subscribe to Newsletter</a> 
@@ -101,31 +100,22 @@
 
 <!-- This script tag powers our form by sending the information to the API once you've cliked submit!  -->
 <script>
-  const url = 'https://Kirsten508.pythonanywhere.com/diaryentry';
-
-  document.querySelector('#diary-form').addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    console.log(ev);
-
-    const data = {
-      title: ev.target.elements[0].value,
-      description: ev.target.elements[1].value,
-    }
-
-    fetch(url, {
-      method: 'post',
-      headers: {
+    document.addEventListener("DOMContentLoaded", () => {
+      // this is a dirty hack 🤮
+      const id = location.search.slice('?id='.length);
+      const url = `https://Kirsten508.pythonanywhere.com/delete/${id}`;
+      fetch(url, {
+      	method: 'delete',
+      	headers: {
       'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(r => r.json())
-    .then(res => {
-      if (res.id) {
+      	}
+      })
+      .then(r => r.json())
+      .then(res => {
         document.querySelector('#success-msg').classList.remove('hidden');
-        document.querySelector('#new-entry-link').setAttribute('href', `single-entry.html?id=${res.id}`);
-      }
-    })
-  });
-</script>
+   
+ 		})
+    });
+  </script>
+
 </html>

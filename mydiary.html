@@ -29,26 +29,63 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Positive Power</title>
 </head>
-<body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="creatediary.html">Create entry</a>
-  </nav>
 
-  <h1>My diary</h1>
+<body class="background-container">
 
-  <div id="diary-entries">
-    <h3>Loading entries&hellip;</h3>
-  </div>
+  		<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-padding">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-hand-middle-finger icon-color" style="font-size:30px"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          	<ul class="navbar-nav w-100">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item active">
+                 <a class="nav-link" href="mydiary.html">Diary</a><span class="sr-only">(current)</span>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="creatediary.html">Create</a></a>
+              </li>
+              </div>
+          </ul>
+          </div>
+        </nav>
 
-  
- </body>
+<div class= "container">
+	<div class= "row first-row">
+		<div class= "col-md-12">
+        <br>
+  			<h1 class = "header-diary underline">My Diary</h1>
+        <br>
 
+  			<div id="diary-entries">
+    			<h3>Loading entries&hellip;</h3>
+ 			</div>
+ 		</div>
+ 	</div>
+</div>
+
+<footer class="footer navbar-padding">
+          <p class="bold"> Connect with us </p>
+          <p> <a class="footer" href="contactus.html" target="contactus.html"><i class="fas fa-envelope"></i>  Subscribe to Newsletter</a> 
+          </p>
+          <p> <a><i class="fab fa-twitter"></i> Twitter</a> 
+          </p>
+          <p> <a><i class="fab fa-facebook"></i> Facebook</a> 
+          </p>
+          <p> <a><i class="fab fa-instagram"></i> Instagram</a> 
+          </p>
+          <p> <a><i class="fab fa-youtube"></i> YouTube</a>
+          </p>
+          <p> Copyright © 2020 Positive Power Inc. All Rights Reserved. </p>
+      </footer>
 
 <!-- Don't worry too much about what's written in the section below this in the <script tags> for now. It represents Javascript code that calls our API and returns the diary entries to our HTML page (above!) -->
   <script>
-    const url = 'Kirsten508.pythonanywhere.com/diaryentry';
+    const url = 'https://Kirsten508.pythonanywhere.com/diaryentry';
     document.addEventListener("DOMContentLoaded", () => {
       const diaryEntries = document.querySelector('#diary-entries');
       fetch(url)
@@ -58,15 +95,14 @@
         const sortedEntries = ids.sort((a, b) => new Date(data.entries[a]).getTime() - new Date(data.entries[b]).getTime());
         const entriesContent = ids.map(id => `
           <div>
-            <h3>${data.entries[id].title}</h3>
-            <a href="single-entry.html?id=${id}">view</a>
-            <h4>Published: ${new Date(data.entries[id].createdat).toDateString()} - ${new Date(data.entries[id].createdat).toLocaleTimeString()}</h4>
-            <p>${data.entries[id].description}</p>
-            <hr />
-          </div>
-
-
-        `);
+            <h3 class= "header-diary">${data.entries[id].title}</h3>
+            <a class = "header-login" href="single-entry.html?id=${id}">View</a>
+            <a class="header-login" href="update.html?id=${id}">Edit</a>
+             <a class="header-login" href="delete.html?id=${id}">Delete</a>
+            <h4 class= "header-published"> Published: ${new Date(data.entries[id].createdat).toDateString()} - ${new Date(data.entries[id].createdat).toLocaleTimeString()}</h4>
+            <p class= "header-diary">${data.entries[id].description}</p>
+            <hr/>
+          </div>`).join("");
         diaryEntries.innerHTML = entriesContent;
       })
     });

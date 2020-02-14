@@ -50,38 +50,37 @@
               <li class="nav-item">
                  <a class="nav-link" href="mydiary.html">Diary</a>
               </li>
-              <li class="nav-item active">
-                 <a class="nav-link" href="creatediary.html">Create</a><span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                 <a class="nav-link" href="creatediary.html">Create</a></a>
               </li>
               </div>
           </ul>
           </div>
   </nav>
 
-  <div class = "container">
-    <div class= "row">
-      <div class= "col-md-12">
-  <br>
-  <h1 class= "header-diary">I am grateful for:</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+  <h1 class= "header-diary">Update diary entry</h1>
   <br>
   <div id="success-msg" class="hidden" style="color: azure">Entry created - <a href="/" id="new-entry-link" style="color: azure"> View</a></div>
   <form id="diary-form" action="#">
-    <label for="title" class = "body-text bold">Title:</label>
-    <input type="text" name="title" maxlength="30" size="35">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id= "title-input" maxlength="30" size="35">
     <br/>
-    <label for="description" class = "body-text bold">Text: </label>
-    <textarea name="description" rows="6" cols="35"></textarea>
+    <label for="description">Text: </label>
+    <textarea name="description" id = "description-input" rows="6" cols="35"></textarea>
     <br/>
-    <br>
-    <input type="submit" value="Save" class = "button-login">
+     <input type="submit" value="Save" class = "button-login">
   </form>
 
-    </div>
-  </div>
 </div>
-
+</div>
+</div>
 <br>
 <hr>
+
 <footer class="footer navbar-padding">
           <p class="bold"> Connect with us </p>
           <p> <a class="footer" href="contactus.html" target="contactus.html"><i class="fas fa-envelope"></i>  Subscribe to Newsletter</a> 
@@ -101,7 +100,8 @@
 
 <!-- This script tag powers our form by sending the information to the API once you've cliked submit!  -->
 <script>
-  const url = 'https://Kirsten508.pythonanywhere.com/diaryentry';
+	const id = location.search.slice('?id='.length);
+      const url = `https://Kirsten508.pythonanywhere.com/update/${id}`;
 
   document.querySelector('#diary-form').addEventListener("submit", (ev) => {
     ev.preventDefault();
@@ -113,7 +113,7 @@
     }
 
     fetch(url, {
-      method: 'post',
+      method: 'put',
       headers: {
       'Content-Type': 'application/json'
       },
@@ -128,4 +128,28 @@
     })
   });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const titleH1 = document.querySelector('#title');
+      const descriptionH1 = document.querySelector('#description');
+      // this is a dirty hack 🤮
+      const id = location.search.slice('?id='.length);
+      const url = `https://Kirsten508.pythonanywhere.com/diaryentry/${id}`;
+      fetch(url)
+      .then(r => r.json())
+      .then(res => {
+      	const title = res.entries.title
+      	const description = res.entries.description 
+      	document.querySelector('#title-input').value = title;
+      	document.querySelector('#description-input').value = description;
+
+        // const entry = res.entries;
+        //  titleH1. = entry.title;
+        //  descriptionH1.placeholder = entry.description;
+
+	
+      })
+    });
+  </script>
 </html>

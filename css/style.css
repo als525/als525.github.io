@@ -9,6 +9,10 @@
 	font-weight: bold; 
 }
 
+.underline {
+	text-decoration: underline;
+}
+
 .form-padding {
 	padding-top: 20%;
 	}
@@ -65,7 +69,21 @@
 	color: #F9DAD0;
 	font-family: Verdana;
 	text-align: center;
-	} 
+	}
+
+.header-diary{
+	font-size: 30px;
+	color: #F9DAD0;
+	font-family: Verdana;
+	text-align: left;
+	}
+
+.header-delete{
+	font-size: 30px;
+	color: #F9DAD0;
+	font-family: Verdana;
+	text-align: center;
+	}  
 
 .header2{
 	font-size: 36px;
@@ -109,6 +127,13 @@
 	color: #BBBAC6;
 	font-family: Verdana;
 	text-align: center;
+
+	}
+
+.header-published{
+	font-size: 16px;
+	color: #BBBAC6;
+	font-family: Verdana;
 
 	}
 
@@ -166,10 +191,24 @@
 
 }
 
+
 .synapses-image {
 	border-radius: 50%;
-	height:500px;
-	width:500px;
+	height:100%;
+	width:100%;
+}
+
+.carousel-image {
+	border-radius: 20%;
+	height:100%;
+	width:100%;
+}
+
+
+.power-image {
+	border-radius: 30%;
+	height:100%;
+	width:100%;
 }
 
 .book-image {
@@ -180,14 +219,14 @@
 
 .ipad-image {
 	border-radius: 30%;
-	height:500px;
-	width:500px;
+	height:100%;
+	width:100%;
 }
 
 .feature-image {
 	border-radius: 30%;
-	height:500px;
-	width:500px;
+	height:100%;
+	width:100%;
 }
 
 .button {
@@ -243,7 +282,6 @@
 .padding-join3{
 	padding-top: 20%
 }
-
 
 
 
